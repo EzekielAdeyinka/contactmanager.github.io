@@ -1,0 +1,16 @@
+{
+  "name": "Alvie",
+  "short_name": "Alvie",
+  "description": "\"Alvie - Your dependendable business assistant\" />   <meta name=\"description\" content=\"Keeping financial records for your business has never been easier. Alvie will call you daily. Simply pickup and dictate your income and expenses for the day, and Alvie will maintain accurate up to the minute cash flow records for you",
+  "lang": "en-US",
+  "start_url": "https://dashboard.alvie.io/",
+  "display": "standalone",
+  "theme_color": "#155991",
+  "icons": [
+    {
+      "src": "https://dashboard.alvie.io/dist/images/Alvie.ico",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ]
+}

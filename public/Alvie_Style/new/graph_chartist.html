@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alvie - Your dependendable business assistant</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/plugins/chartist/chartist.min.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Ope Adeoye</strong>
+                             </span> <span class="text-muted text-xs block">Art Director </span> </span> </a>
+                        </div>
+                        <div class="logo-element">
+                            <img src="img/alvielogo.png">
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+                    </li>
+                    <li>
+                    <a href="cashlog.html"><i class="fa fa-money"></i> <span class="nav-label">Cash log</span></a>
+                    </li>
+                    <li>
+                        <a href="reports.html"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span></a>
+                    </li>
+                    <li>
+                        <a href="setup_call_schedule.html"><i class="fa fa-phone"></i> <span class="nav-label">Call Schedule</span></a>
+                    </li>
+                    <li>
+                        <a href="audios.html"><i class="fa fa-file-audio-o"></i> <span class="nav-label">Audio log</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" action="search_results.html">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="mailbox.html">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="profile.html">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="grid_options.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="notifications.html">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="login.html">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Chartist</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a>Graphs</a>
+                    </li>
+                    <li class="active">
+                        <strong>Chartist</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Simple line chart
+                            </h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="ct-chart1" class="ct-perfect-fourth"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Line scatter diagram</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="ct-chart2" class="ct-perfect-fourth"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Stacked bar chart</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="ct-chart3" class="ct-perfect-fourth"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Horizontal bar chart </h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="ct-chart4" class="ct-perfect-fourth"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Simple pie chart</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="ct-chart5" class="ct-perfect-fourth"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Gauge chart </h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="ct-chart6" class="ct-perfect-fourth"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Chartist -->
+    <script src="js/plugins/chartist/chartist.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+
+            // Simple line
+
+            new Chartist.Line('#ct-chart1', {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                series: [
+                    [12, 9, 7, 8, 5],
+                    [2, 1, 3.5, 7, 3],
+                    [1, 3, 4, 5, 6]
+                ]
+            }, {
+                fullWidth: true,
+                chartPadding: {
+                    right: 40
+                }
+            });
+
+
+            // Line scatter diagram
+
+            var times = function(n) {
+                return Array.apply(null, new Array(n));
+            };
+
+            var data = times(26).map(Math.random).reduce(function(data, rnd, index) {
+                data.labels.push(index + 1);
+                data.series.forEach(function(series) {
+                    series.push(Math.random() * 100)
+                });
+
+                return data;
+            }, {
+                labels: [],
+                series: times(4).map(function() { return [] })
+            });
+
+            var options = {
+                showLine: false,
+                axisX: {
+                    labelInterpolationFnc: function(value, index) {
+                        return index % 13 === 0 ? 'W' + value : null;
+                    }
+                }
+            };
+
+            new Chartist.Line('#ct-chart2', data, options);
+
+
+            // Stocked bar chart
+
+            new Chartist.Bar('#ct-chart3', {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                series: [
+                    [800000, 1200000, 1400000, 1300000],
+                    [200000, 400000, 500000, 300000],
+                    [100000, 200000, 400000, 600000]
+                ]
+            }, {
+                stackBars: true,
+                axisY: {
+                    labelInterpolationFnc: function(value) {
+                        return (value / 1000) + 'k';
+                    }
+                }
+            }).on('draw', function(data) {
+                        if(data.type === 'bar') {
+                            data.element.attr({
+                                style: 'stroke-width: 30px'
+                            });
+                        }
+                    });
+
+
+            // Stocked horizontal bar
+
+            new Chartist.Bar('#ct-chart4', {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                series: [
+                    [5, 4, 3, 7, 5, 10, 3],
+                    [3, 2, 9, 5, 4, 6, 4]
+                ]
+            }, {
+                seriesBarDistance: 10,
+                reverseData: true,
+                horizontalBars: true,
+                axisY: {
+                    offset: 70
+                }
+            });
+
+
+            // Simple pie chart
+
+            var data = {
+                series: [5, 3, 4]
+            };
+
+            var sum = function(a, b) { return a + b };
+
+            new Chartist.Pie('#ct-chart5', data, {
+                labelInterpolationFnc: function(value) {
+                    return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                }
+            });
+
+            // Gauge chart
+
+            new Chartist.Pie('#ct-chart6', {
+                series: [20, 10, 30, 40]
+            }, {
+                donut: true,
+                donutWidth: 60,
+                startAngle: 270,
+                total: 200,
+                showLabel: false
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
