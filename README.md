@@ -1,2 +1,2 @@
-# EasyCodeIntern
-Building Laravel Vue mixed
+# Cloud Based Contact Manager App
+Building with Laravel Vue mixed
