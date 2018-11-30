@@ -98,7 +98,7 @@
 
             }
         },
-        mounted() {
+        beforeMount() {
             $('input[type="submit"]').click(function(){
                 $('.login').addClass('test');
                 setTimeout(function(){

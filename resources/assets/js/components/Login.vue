@@ -14,17 +14,33 @@
                     <div class='icon'>
                         <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png'>
                     </div>
+                    <input placeholder='Fullname' v-model="UserD.fname" type='text'>
+                    <div class='validation'>
+                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+                    </div></div>
+                <div class='login_fields__user'>
+                    <div class='icon'>
+                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png'>
+                    </div>
                     <input placeholder='Email' v-model="UserD.email" type='text'>
                     <div class='validation'>
                         <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
                     </div>
-                    </input>
+                </div>
+                <div class='login_fields__user'>
+                    <div class='icon'>
+                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png'>
+                    </div>
+                    <input placeholder='Phone No' v-model="UserD.phone" type='text'>
+                    <div class='validation'>
+                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+                    </div>
                 </div>
                 <div class='login_fields__password'>
                     <div class='icon'>
                         <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png'>
                     </div>
-                    <input placeholder='Password' v-model="UserD.password" type='password'>
+                    <input placeholder='Password' required v-model="UserD.password" type='password'>
                     <div class='validation'>
                         <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
                     </div>
@@ -57,6 +73,7 @@
 </template>
 
 <script>
+    // import $ from 'jquery';
     export default {
         name: "login",
         data() {
@@ -75,7 +92,7 @@
         },
         methods: {
             login() {
-                localStorage.setItem("userData",this.UserD);
+                localStorage.setItem("userData",JSON.stringify(this.UserD));
                 this.$router.push("/contact");
             },
 
@@ -99,7 +116,7 @@
                     $('.login').removeClass('testtwo')
                 },2500);
                 setTimeout(function(){
-                    $('.login').removeClass('test')
+                    $('.login').removeClass('test');
                     $('.login div').fadeOut(123);
                 },2800);
                 setTimeout(function(){
@@ -121,7 +138,6 @@
                     $(this).next().animate({'opacity':'0','right' : '20'},200)
                 }
             });
-
             var open = 0;
             $('.tab').click(function(){
                 $(this).fadeOut(200,function(){

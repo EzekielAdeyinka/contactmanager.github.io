@@ -2,7 +2,7 @@
     <div>
         <div class="wrapper">
             <div class="sidebar">
-                <div class="userDetails"><h2 class="userName">John Doe</h2><p class="userEmail">johndoe@gmail.com</p> </div>
+                <div class="userDetails"><h2 class="userName">{{UserD.fname}}</h2><p class="userEmail">{{UserD.email}}</p> </div>
                 <div class="menu">
                     <ul>
                         <li class="contacts bold"> Contacts<span>(34)</span></li>
@@ -10,7 +10,7 @@
                         <li class="settings bold">Settings</li>
                         <li class="eraseDb light"> Erase Database</li>
                         <li class="eraseTags light">Erase Tags</li>
-                        <li class="logOut"> Log Out</li>
+                        <li class="logOut" @click="logout()"> Log Out</li>
                     </ul>
                 </div>
             </div>
@@ -30,40 +30,90 @@
                 <div class="contactList" v-for='(email, index) in contact'>
                     <div class="row">
                         <div class="col-xs-6">
-                            <img :src="email.profileImage"><h4 class="bold">{{email.firstName}}, {{email.lastName}} <span><i class="fa fa-star-o"></i></span></h4><p>{{email.gender}}, {{email.address}}</p> <p>{{email.phoneNumber}}</p></div>
+                            <img :src="email.profileImage"><h4 class="bold">{{email.firstName}}, {{email.lastName}} <span @click="(showmodal(email))">x</span></h4><p>{{email.gender}}, {{email.address}}</p> <p>{{email.phoneNumber}}</p></div>
                     </div>
                 </div>
                 <div id="basicMenu">
-                    <div class="home active"><i class="fa fa-2x fa-home"></i></div>
-                    <div class="share"><i class="fa fa-2x fa-share"></i></div>
+                    <div class="home active" @click="PullContact()"><i class="fa fa-2x fa-home"></i></div>
+                    <div class="share" @click="logout()"><i class="fa fa-2x fa-share"></i></div>
                     <div class="add"><i class="fa fa-5x fa-plus-circle"></i></div>
                 </div>
             </div>
+            <v-dialog></v-dialog>
+
+
         </div>
     </div>
 </template>
 <script>
-
     // import 'bootstrap/dist/css/bootstrap.css'
     // import 'bootstrap-vue/dist/bootstrap-vue.css'
     export default {
         name: "login",
         data() {
             return {
-                UserJ: {
-                    username: 'samalapsy@gmail.com',
-                    password: 'Jame@23',
-                    remember: '',
-                },
-                contact: '',
+                UserD: {},
+                contact: {},
             }
         },
+        watch: {
+            contact: function (val, oldVal) {
+                console.log('new: %s, old: %s', val, oldVal)
+            },
+        },
         methods: {
-            login() {
+            showmodal(email) {
+                this.$modal.show('dialog', {
+                    title: 'Alert!',
+                    text: 'Do you wish to delete this Contact '+ email.firstName + ',' + ''+ email.lastName,
+                    buttons: [
+                        {
+                            title: 'Yes Delete',
+                            handler: () => {  var r = confirm("Are you sure you want to Continue!");
+                                if (r === true) {
+                                    axios({
+                                        method: 'DELETE',
+                                        url: 'https://alc-student-resource.herokuapp.com/students/'+ email._id,
+                                        headers:
+                                            {
+                                                'Content-Type': 'application/json',
+                                            },
+                                    }).then(response =>{
+                                        iziToast.success({
+                                            title: 'Success',
+                                            message: response.data.message,
+                                            position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                                        });
+                                        this.contact = "";
+                                        this.PullContact();
+                                    }).catch(function (error) {
 
+                                    });
+                                } else {
+                                    iziToast.info({
+                                        title: 'Okay',
+                                        message: 'Canceling Process',
+                                        position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                                    });
+                                } }
+                        },
+                        {
+                            title: 'Wait',       // Button title
+                            default: true,    // Will be triggered by default if 'Enter' pressed.
+                            handler: () => {iziToast.info({
+                                title: 'Okay',
+                                message: 'Am Waiting Think it Through!',
+                                position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                            });} // Button click handler
+                        },
+                        {
+                            title: 'Cancle'
+                        }
+                    ]
+                })
             },
             PullContact: function () {
-             return   axios({
+                axios({
                     method: 'get',
                     url: 'https://contact-details.herokuapp.com/students',
                     data: '',
@@ -72,11 +122,18 @@
                             'Content-Type': 'application/json',
                         },
                 }).then(response =>{
-                    this.contact = response.data;
-                    console.log(this.contact);
+                    this.$data.contact = response.data;
+                    console.log(this.$data.contact);
                 }).catch(function (error) {
 
                 });
+            },
+            logout(){
+                var r = confirm("Do you really want to logout?");
+                if (r == true) {
+                    localStorage.clear();
+                    window.location.replace(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/login');
+                }
             },
 
             loginFailed() {
@@ -91,7 +148,7 @@
                     .toggleClass('shrink');
             });
         },created() {
-
+            this.UserD = JSON.parse(localStorage.getItem("userData"));
         }
     };
 </script>

@@ -87,7 +87,13 @@ const router = new VueRouter({
         }
     ],
 });
+import jquery from 'jquery';
+Vue.prototype.$ = jquery;
+import VModal from 'vue-js-modal'
+import iziToast from 'izitoast'
 
+Vue.use(VModal, { dialog: true });
+Vue.use(iziToast);
 
 const app = new Vue({
     el: '#app',
